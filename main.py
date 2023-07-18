@@ -1,16 +1,15 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import cv2
+from pytesseract import pytesseract
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# ler a imagem
+imagem = cv2.imread(r"C:\Users\Win10\Pictures\imagem de programas\csv bites\i2.jpeg")
 
+# tesseract extrair o texto
+path_to_tesseract = r"C:\Program Files\Tesseract-OCR"
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+pytesseract.tesseract_cmd = path_to_tesseract + r"\tesseract.exe"
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+texto = pytesseract.image_to_string(imagem)
+
+print(texto)
